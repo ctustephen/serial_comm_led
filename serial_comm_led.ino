@@ -1,10 +1,4 @@
-#include <ArduinoJson.h>
-#include <SoftwareSerial.h>
-
 #define LED1 3
-
-DynamicJsonDocument doc(1024);
-//SoftwareSerial arduinoSerial(5, 7); // rx, tx
 
 byte option = 0;
 bool blink = 0;
@@ -14,7 +8,6 @@ long millis1 = 0;
 
 void setup() {
   Serial.begin(9600);
-  //  arduinoSerial.begin(9600);
 
   pinMode(LED1, OUTPUT);
   digitalWrite(LED1, HIGH);
@@ -28,9 +21,6 @@ void loop() {
   {
     String data = Serial.readStringUntil('\n');
     Serial.println(data);
-    //    deserializeJson(doc, received);
-    //
-    //    String data = doc[String("light1")];
 
     if (data == "on")
     {
